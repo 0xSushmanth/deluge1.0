@@ -22,7 +22,7 @@ class _BotCommands:
         self.CloneCommand = 'clonedl'
         self.CountCommand = 'countdl'
         self.WatchCommand = 'watchdl'
-        self.TarWatchCommand = 'tarwatch'
+        self.TarWatchCommand = 'tarwatchdl'
         self.DeleteCommand = 'deldl'
         self.UsageCommand = 'usagedl'
         self.MediaInfoCommand = 'mediainfodl'
