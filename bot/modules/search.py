@@ -56,7 +56,7 @@ async def return_search(query, page=1, sukebei=False):
 <b>📥 Downloaded:</b> {i["nyaa_downloads"]}
 <b>🎭 Category:</b> {i["nyaa_category"]}\n\n'''
                 futtext = text + newtext
-                if (a and not a % 6) or len((await parser.parse(futtext))['message']) > 4096:
+                if (a and not a % 10) or len((await parser.parse(futtext))['message']) > 4096:
                     results.append(text)
                     futtext = newtext
                 text = futtext
