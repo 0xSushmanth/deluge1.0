@@ -53,9 +53,11 @@ async def return_search(query, page=1, sukebei=False):
 <b>💾 Size:</b> {i["nyaa_size"]}
 <b>🌱 Seeders:</b> {i["nyaa_seeders"]}
 <b>🌍 Leechers:</b> {i["nyaa_leechers"]}
+<b>📥 Downloaded:</b> {i["nyaa_downloads"]}
+<b>📅 Publish Date:</b> {i["pubDate"]}
 <b>🎭 Category:</b> {i["nyaa_category"]}\n\n'''
                 futtext = text + newtext
-                if (a and not a % 10) or len((await parser.parse(futtext))['message']) > 4096:
+                if (a and not a % 6) or len((await parser.parse(futtext))['message']) > 4096:
                     results.append(text)
                     futtext = newtext
                 text = futtext
@@ -157,7 +159,7 @@ class TorrentSearch:
     response = None
     response_range = None
 
-    RESULT_LIMIT = 4
+    RESULT_LIMIT = 5
     RESULT_STR = None
 
     def __init__(self, command: str, source: str, result_str: str):
