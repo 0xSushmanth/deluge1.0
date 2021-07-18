@@ -202,6 +202,20 @@ BotCommand(f'{BotCommands.RestartCommand}','Restart bot [owner/sudo only]')]
 
 
 def main():
+    # Heroku restarted
+    GROUP_ID = '-1001437939580 -1001272467137'
+    kie = datetime.now(pytz.timezone('Asia/Kuala_Lumpur'))
+    jam = kie.strftime('%d/%m/%Y %I:%M%P')
+    if GROUP_ID is not None and isinstance(GROUP_ID, str):        
+        try:
+            dispatcher.bot.sendMessage(f"{GROUP_ID}", f"♻️ BOT GOT RESTARTED.\n{jam}")
+        except Unauthorized:
+            LOGGER.warning(
+                "Bot isnt able to send message to support_chat, go and check!"
+            )
+        except BadRequest as e:
+            LOGGER.warning(e.message)
+    
     fs_utils.start_cleanup()
     # Check if the bot is restarting
     if os.path.isfile(".restartmsg"):
